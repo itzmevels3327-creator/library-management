@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Library Management System</title>
+
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f2f2f2;
+            margin: 0;
+            padding: 0;
+        }
+
+        header {
+            background-color: #2c3e50;
+            color: white;
+            text-align: center;
+            padding: 20px;
+        }
+
+        .container {
+            width: 90%;
+            max-width: 600px;
+            margin: 30px auto;
+            background: white;
+            padding: 20px;
+            border-radius: 10px;
+        }
+
+        input {
+            width: 95%;
+            padding: 10px;
+            margin: 8px 0;
+        }
+
+        button {
+            background-color: #3498db;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            cursor: pointer;
+            border-radius: 5px;
+        }
+
+        button:hover {
+            background-color: #2980b9;
+        }
+
+        li {
+            margin: 10px 0;
+        }
+    </style>
+</head>
+
+<body>
+
+    <header>
+        <h1>Library Management System</h1>
+        <p>Manage your library books easily</p>
+    </header>
+
+    <div class="container">
+        <h2>Add Book</h2>
+
+        <input type="text" id="bookName" placeholder="Enter book name">
+        <input type="text" id="authorName" placeholder="Enter author name">
+
+        <button onclick="addBook()">Add Book</button>
+
+        <h2>Book List</h2>
+        <ul id="bookList"></ul>
+    </div>
+
+    <script>
+        function addBook() {
+            let bookName = document.getElementById("bookName").value;
+            let authorName = document.getElementById("authorName").value;
+
+            if (bookName === "" || authorName === "") {
+                alert("Please enter book name and author name");
+                return;
+            }
+
+            let listItem = document.createElement("li");
+
+            listItem.innerHTML =
+                bookName + " - " + authorName;
+
+            document.getElementById("bookList").appendChild(listItem);
+
+            document.getElementById("bookName").value = "";
+            document.getElementById("authorName").value = "";
+        }
+    </script>
+
+</body>
+</html>
